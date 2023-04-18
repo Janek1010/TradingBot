@@ -8,10 +8,7 @@ public class TradingBotApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TradingBotApplication.class, args);
-        System.out.println("aaa");
-        System.out.println("aaa");
-        System.out.println("aaa");
-        System.out.println("aaa");
+
     }
 
 }
