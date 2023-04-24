@@ -1,6 +1,11 @@
 package com.example.tradingbot.domain;
 
-import jakarta.persistence.*;
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvBindByPosition;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,30 +13,21 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
 @Entity
-public class Cryptocurrency {
+public class PriceRecord {
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false)
-    private UUID id;
-    private BigDecimal lastPrice;
-    private String pairName;
-    private String interval;
-
-    @OneToMany
-    private List<PriceRecord> prices = new ArrayList<>();
-
-    public boolean addRecord(PriceRecord priceRecord){
-        return prices.add(priceRecord);
-    }
-
+    private UUID uuid;
+    private BigDecimal price;
+    private LocalDateTime localDateTime;
 }

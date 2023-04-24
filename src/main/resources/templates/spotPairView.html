@@ -5,7 +5,11 @@
     <title>Spot Trading</title>
 </head>
 <body>
-<h1> Price list</h1>
+<h1> Obecnie analizujesz: <span th:text="${crypto.pairName}"></span></h1>
+<div>
+    <span>ostatnia cena waluty wynosiła:<span th:text="${crypto.getLastPrice()}"></span> </span>
+</div>
+<p>Dostepna analiza pozwala na sprawdzenie efektywnosci dostepnych wskaznikow z wykorzystaniem historycznych danych </p>
 <!--<table>-->
 <!--    <tr>-->
 <!--        <th>ID</th>-->
